@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Добро пожаловать
+{% endblock %}
+{% block content %}
+    <div class="rating"></div>
+    <div class="name-div">
+        <h1>Иконка компании</h1>
+    </div>
+    <div class="btns-div">
+        <a class="enter-btn" href={% url 'login' %}>Войти</a>
+    </div>
+{% endblock %}

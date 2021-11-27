@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Профиль
+{% endblock %}
+
+{% block content %}
+
+    <!--- div для всей страницы --->
+    <div>
+        <!--- div для контеййнера с инфой профиля --->
+        <div>
+            <!--- Имя фамилия рейтинг --->
+            <div></div>
+            <div>
+                <h2>Имя</h2>
+                <h2>Фамилия</h2>
+            </div>
+
+            <div>
+                <p>Колличество успешных взысканий</p>
+                <p>Значение</p>
+            </div>
+
+            <div>
+                <p>Процент успешных взысканий</p>
+                <p>Значение</p>
+            </div>
+
+        </div>
+
+        <!--- div для кнопок--->
+        <div class="btns-div">
+            <a class="enter-btn">Начать смену</a>
+            <a class="leave-btn" href={% url 'logout' %}>Выйти</a>
+        </div>
+
+    </div>
+
+{% endblock %}

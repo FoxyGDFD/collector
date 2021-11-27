@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --standart-button-background-color: #E5E5E5;
+    --standart-button-boxshadow-color: #E5E5E5;
+
+    --start-button-background-color: #239EDA;
+    --start-button-text-color: #FFFFFF;
+    --start-button-boxshadow-color: rgba(10, 125, 182, .3);
+
+    --exit-button-text-color: #CC2F2F;
+
+    --rating-blur-element-color: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 70.89%);
+    --rating-good-color: #588F98;
+    --rating-medium-colr: #CC8D2F;
+
+    --rating-bad-color: #CC2F2F;
+
+    --tutor-text-color: #239EDA;
+
+    --client-info-background-color: #F4F4F4;
+}
+
+html {
+   font-size: 50px;
+
+}
+
+body {
+    font-family: "Inter";
+    font-weight: 400;
+    font-style: normal;
+    height: 87vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+button {
+    border: 0;
+    background-color: #fff;
+}
+
+.content {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 87vh;
+}
+
+.rating{
+    height: 150px;
+    width: 150px;
+}
+
+.name-div {
+    text-align: center;
+    font-weight: 700;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5625rem;
+    line-height: 1.375rem;
+}
+
+.btns-div {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.enter-btn {
+    color: var(--start-button-text-color);
+    font-size: 1rem;
+    text-align: center;
+
+
+    -webkit-border-radius: 1.25rem;
+    -moz-border-radius: 1.25rem;
+    border-radius: 1.25rem;
+
+    background-color: var(--start-button-background-color);
+
+    box-shadow: .3rem .8rem 1rem var(--start-button-boxshadow-color);
+    padding: 1.25rem 3.9rem;
+
+    transition: .3s;
+}
+
+.enter-btn:hover {
+    transform: scale(1.07);
+}
+
+.leave-btn {
+    margin-top: 4rem;
+    color: var(--exit-button-text-color);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.your-client {
+    font-weight: 700;
+    font-size: .74rem;
+}
+
+.rating-container {
+    background-color: var(--rating-good-color);
+    position: absolute;
+    height: 1.4rem;
+    width: 1.2rem;
+}
+
+.client-info {
+    font-size: 1.1rem;
+    background-color: var(--client-info-background-color);
+    padding: 1.2rem;
+}
+
+/*.rating-container {*/
+/*}*/
+.rating-container > .blur {
+    position: absolute;
+    top: 0; left: 0;
+    height: inherit;
+    width: inherit;
+}
+
+@media all and (min-width: 1025px) and (max-width: 1920px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media all and (min-width: 477px) and (max-width: 1024px) {
+    html {
+        font-size: 26px;
+    }
+}
+
+@media all and (min-width: 30px) and (max-width: 476px) {
+    html {
+        font-size: 36px;
+    }
+}
+

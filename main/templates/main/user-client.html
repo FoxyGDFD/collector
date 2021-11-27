@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Подбор клиентов
+{% endblock %}
+
+{% block content %}
+    <!--- блок текущий клиент --->
+    <h1 class="your-client">Ваш клиент</h1>
+
+    <div class="client-info">
+        <div class="rating-container">
+            <div class="background"></div>
+            <div class="blur"></div>
+        </div>
+        <div class="client-info-inner">
+            <h2 class="client-name">Имя</h2>
+            <h2 class="user-lastname">Фамилия</h2>
+        </div>
+
+    </div>
+
+    <div class="next-clients">
+        <h2 style="font-size: 1.4rem">Следующие клиенты</h2>
+        <h3 style="font-size: 1rem">Предположительно</h3>
+        <!--- div с цветом рейтинга --->
+        <div class="client-info">
+            <div class="rating-container">
+                <div class="background"></div>
+                <div class="blur"></div>
+            </div>
+            <div class="client-info-inner">
+                <h2 class="client-name">Имя</h2>
+                <h2 class="user-lastname">Фамилия</h2>
+            </div>
+        </div>
+
+        <div class="client-info">
+            <div class="rating-container">
+                <div class="background"></div>
+                <div class="blur"></div>
+            </div>
+            <div class="client-info-inner">
+                <h2 class="client-name">Имя</h2>
+                <h2 class="user-lastname">Фамилия</h2>
+            </div>
+        </div>
+    </div>
+
+    <!--- вопрос о подборе клиентов --->
+    <p>Как осуществляется подбор клиентов?</p>
+
+{% endblock %}
