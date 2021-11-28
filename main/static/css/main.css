@@ -7,6 +7,7 @@
 :root {
     --standart-button-background-color: #E5E5E5;
     --standart-button-boxshadow-color: #E5E5E5;
+    --standart-button-text-color: #D0D0D0;
 
     --start-button-background-color: #239EDA;
     --start-button-text-color: #FFFFFF;
@@ -26,23 +27,22 @@
 
     --placeholder-color: #A0A0A0;
 
-
     --input-background-color: #F4F4F4;
     --input-border-color: #F4F4F4;
     --input-border-hover-color: #D0D0D0;
 
     --employee-info-container-boxshadow-color: #E5E5E5;
     --employee-info-container-background-color: #F4F4F4;
+    --employee-edit-button-color: #F4F4F4;
+    --employee-edit-button-boxshadow-color: rgba(244, 244, 244, 1);
 
     --rising-menu-number-background-color: #F4F4F4;
-}
 
-.pop-up-edit-disabled {
-    display: none;
-}
+    --pop-up-inner-container: #F4F4F4;
+    --pop-up-background-color: rgba(85, 85, 85, .4);
+    --pop-up-border-color: #D0D0D0;
 
-.pop-up-edit-anabled {
-    display: block;
+    --table-background-color: #F4F4F4;
 }
 
 html {
@@ -54,6 +54,7 @@ body {
     font-weight: 400;
     font-style: normal;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 a {
@@ -65,6 +66,7 @@ a {
 button {
     border: 0;
     background-color: #fff;
+    overflow: visible;
 }
 
 .content {
@@ -74,7 +76,6 @@ button {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    padding: 1rem;
 }
 
 .name-div {
@@ -97,7 +98,7 @@ h1, h2 {
 }
 
 .btns-div {
-    margin-top: 10rem;
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
 }
@@ -106,7 +107,6 @@ h1, h2 {
     color: var(--start-button-text-color);
     font-size: 1rem;
     text-align: center;
-
 
     -webkit-border-radius: 1.25rem;
     -moz-border-radius: 1.25rem;
@@ -138,6 +138,10 @@ h1, h2 {
     color: var(--skip-button-text-color);
     font-size: 1rem;
     text-align: center;
+}
+
+.center {
+    margin: 3rem auto;
 }
 
 .your-client {
@@ -176,16 +180,16 @@ h1, h2 {
     background-clip: padding-box;
     border-radius: 1.6rem;
     line-height: 1.5rem;
-    border: 1px solid var(--input-border-color);
+    border: 1px solid var(--pop-up-border-color);
     font-size: 1.2rem;
 }
 
-.input:focus, .textarea:focus {
+.input:focus, .textarea:focus, .pop-up-input:focus {
     outline: none;
     border: 1px solid var(--input-border-hover-color);
 }
 
-.input::placeholder, .textarea::placeholder {
+.input::placeholder, .textarea::placeholder, .pop-up-input::placeholder {
     color: var(--placeholder-color);
     text-align: center;
     font-size: 1.3rem;
@@ -243,6 +247,25 @@ h1, h2 {
     opacity: .6;
 }
 
+.edit-employee-data {
+    margin-bottom: 3rem;
+
+    font-size: 1rem;
+    text-align: center;
+
+    -webkit-border-radius: 1.25rem;
+    -moz-border-radius: 1.25rem;
+    border-radius: 1.25rem;
+
+    background-color: var(--employee-edit-button-color);
+
+    box-shadow: 0 .8rem 1rem var(--employee-edit-button-boxshadow-color);
+    padding: 1.25rem 3.9rem;
+
+    cursor: pointer;
+
+    transition: all .3s;
+}
 
 .employee-name-container, .client-name-container {
     flex-basis: 70%;
@@ -297,10 +320,10 @@ h1, h2 {
 .rising-menu-container {
     width: 30%;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #FFF;
     border-radius: 1.1rem;
     position: absolute;
-    bottom: -40%;
+    bottom: -50%;
     left: 50%;
     transform: translate(-50%, 0);
     box-shadow: 0 -10px 10px var(--standart-button-boxshadow-color);
@@ -309,7 +332,7 @@ h1, h2 {
 }
 
 .rising-menu-container:hover {
-    bottom: 0;
+    bottom: 8%;
 }
 
 .client-info-container {
@@ -355,10 +378,118 @@ h1, h2 {
     margin-left: .2rem;
 }
 
+.comments-about-client {
+    display: block;
+    margin: 1.5rem 2rem 2rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--input-background-color);
+    background-clip: padding-box;
+    border-radius: 1.6rem;
+    line-height: 1.5rem;
+    border: 1px solid var(--input-border-color);
+    font-size: 1.2rem;
+    color: #000;
+    text-align: center;
+}
+
+.pop-up-edit-profile-disabled {
+    display: none;
+}
+
+.pop-up-edit-profile-enabled {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0; left: 0;
+    background-color: var(--pop-up-background-color);
+}
+
+.pop-up-inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5rem;
+    border-radius: 1.1rem;
+    background-color: var(--pop-up-inner-container);
+}
+
+.pop-up-inner-container > div > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.pop-up-input {
+    background-color: var(--input-background-color);
+    background-clip: padding-box;
+    padding: 1rem 1.5rem;
+    border-radius: 1.6rem;
+    line-height: 1.5rem;
+    border: 1px solid var(--pop-up-border-color);
+    font-size: 1rem;
+    margin-left: .5rem;
+}
+
+
+.pop-up-begin-disabled {
+    display: none;
+}
+
+.pop-up-begin-enabled {
+    display: block;
+}
+
+.pop-up-end-disabled {
+    display: none;
+}
+
+.pop-up-end-enabled {
+    display: block;
+}
+
+.manager-buttons-div {
+    display: flex;
+    justify-content: space-between;
+}
+.top-weight {
+    font-weight: 700;
+}
+.manager-leave {
+    margin-left: 9rem;
+    color: var(--exit-button-text-color);
+}
+
+table {
+    background-color: var(--table-background-color);
+    padding: 2rem 3rem;
+    border-radius: 1.1rem;
+    border-collapse: separate;
+    border-spacing: 3rem 2rem;
+}
+
+
+table > tr > th {
+    font-weight: 400;
+    border-collapse: separate;
+    border-spacing: 0px 1rem;
+}
+
 @media (max-width: 1920px) {
     html {
         font-size: 15px;
     }
+    .rising-menu-container {
+        bottom: -45%;
+    }
+    .rising-menu-container:hover {
+        bottom: 0;
+    }
+
 }
 
 @media (max-width: 1400px) {
@@ -377,7 +508,7 @@ h1, h2 {
     }
 
     .rising-menu-container {
-        width: 70%;
+        width: 60%;
     }
 }
 
@@ -386,10 +517,15 @@ h1, h2 {
         font-size: 32px;
     }
     .content {
-        padding: 0;
+        padding: 0 1rem;
+    }
+    .rising-menu-container:hover {
+        bottom: -13%;
     }
     .rising-menu-container {
         width: 100%;
+        bottom: -45%;
+
     }
 }
 

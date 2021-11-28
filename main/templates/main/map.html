@@ -16,8 +16,8 @@
             <div class="client-rating-and-name">
                 <div class="rating-container"></div>
                 <div class="client-name-container">
-                    <h1 class="client-name-container-name">Имя</h1>
-                    <h1 class="client-name-container-lastname">Фамилия</h1>
+                    <h1 class="client-name-container-name">Василий</h1>
+                    <h1 class="client-name-container-lastname">Васильев</h1>
                 </div>
             </div>
         </div>
@@ -31,9 +31,9 @@
                 </div>
             </div>
             <div class="user-data-container-in-rising-menu">
-                <h1 class="user-data-container-in-rising-menu-h1">Расстояние</h1>
+                <h1 class="user-data-container-in-rising-menu-h1" id="way_length">Расстояние</h1>
                 <div class="quantity-of-something">
-                    <div class="quantity-of-something-number">2</div>
+                    <div class="quantity-of-something-number">7</div>
                     <div class="quantity-of-something-text">км</div>
                 </div>
             </div>
@@ -48,11 +48,18 @@
         <a class="comments-about-client" href="">Комментарии</a>
     </div>
 
-    <div id="pop-up-begin-disabled">
+<div class="pop-up-begin-disabled" id="pop-up-begin">
         <div>
             <h1>Вы прибыли</h1>
             <h3>Для начала взыскания, нажмите кнопку</h3>
             <button type="button" class="enter-btn" id="begin-btn">Начать</button>
+        </div>
+    </div>
+
+    <div class="pop-up-end-disabled" id="pop-up-end">
+        <div>
+            <h1>Завершить взыскание?</h1>
+            <button type="button" class="enter-btn" id="end-btn" >Завершить</button>
         </div>
     </div>
 

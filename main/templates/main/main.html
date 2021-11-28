@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block title %}
     Добро пожаловать
 {% endblock %}
 {% block content %}
     <div class="rating"></div>
     <div class="name-div">
-        <h1>Иконка компании</h1>
+        <img width="300rem" src="{% static 'img/Frame_61.svg' %}" alt="">
+        <h1 style="font-size: 5rem">kasstbIль</h1>
     </div>
     <div class="btns-div">
         <a class="enter-btn" href={% url 'login' %}>Войти</a>

@@ -5,8 +5,13 @@
 {% endblock %}
 
 {% block content %}
+    <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+    <h2 style="margin-bottom: 4rem">Все клиенты</h2>
 
-    <h1>Все клиенты</h1>
+    <div class="manager-buttons-div">
+            <button class="edit-employee-data top-weight" id="copy-API-key">Копировать API key</button>
+            <a class="manager-leave edit-employee-data top-weight" href={% url 'logout' %}>Выйти</a>
+    </div>
 
     <table>
         <tr>
@@ -18,6 +23,7 @@
             <th>Размер долга</th>
             <th>Задолженность появилась</th>
         </tr>
+
         <tr>
             <th>1</th>
             <th>Иванов</th>

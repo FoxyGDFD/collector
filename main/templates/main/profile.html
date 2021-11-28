@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Профиль
+Профиль сотрудника
 {% endblock %}
 
 {% block content %}
@@ -13,23 +13,20 @@
             <!--- Имя фамилия рейтинг --->
             <div class="employee-info-container">
                 <div class="employee-rating-and-name">
-                    <div class="rating-container"></div>
+                    <div class="rating-container" style="background-color:{% if request.user.rate == "J"%}green{% elif  request.user.rate == "B"%}yellow{% elif request.user.rate == "P" %}red{% endif %}"></div>
                     <div class="employee-name-container">
-                        <h1 class="employee-name-container-name">Имя</h1>
-                        <h1 class="employee-name-container-lastname">Фамилия</h1>
-                        <!--- --->
-                        <button type="button" id="edit-btn">Редактировать</button>
-                        <!------>
+                        <h1 class="employee-name-container-name">{{ request.user.first_name }}</h1>
+                        <h1 class="employee-name-container-lastname">{{ request.user.last_name }}</h1>
                     </div>
                 </div>
                 <div class="statistic-container">
                     <div class="statistic-container-inner-block number-of-successful-recoveries">
                         <div class="statistic-container-inner-block-text">Количество успешных взысканий</div>
-                        <div class="statistic-container-inner-block-number-or-percent">100</div>
+                        <div class="statistic-container-inner-block-number-or-percent">{{ request.user.succes_task  }}</div>
                     </div>
                     <div class="statistic-container-inner-block number-of-successful-recoveries">
                         <div class="statistic-container-inner-block-text">Процент успешных взысканий</div>
-                        <div class="statistic-container-inner-block-number-or-percent">60%</div>
+                        <div class="statistic-container-inner-block-number-or-percent">100%</div>
                     </div>
                 </div>
             </div>
@@ -38,45 +35,47 @@
 
         <!--- div для кнопок--->
         <div class="btns-div">
+            <button class="edit-employee-data" type="button" id="edit-btn">Редактировать</button>
             <a class="enter-btn" href={% url 'map' %}>Начать смену</a>
             <a class="leave-btn" href={% url 'logout' %}>Выйти</a>
         </div>
 
         <!--- Поп ап для редактирования профиля --->
-        <div class ="pop-up-edit-disabled" id="pop-up-edit-profile">
-            <div>
-                <label>
-                    <span>Изменить имя </span>
-                    <input type="text" placeholder="имя" name="username" value={{ name }}>
-                </label>
+        <div class="pop-up-edit-profile-disabled" id="pop-up-edit-profile">
+            <div class="pop-up-inner-container">
+                <div>
+                    <label>
+                        <span>Изменить имя</span>
+                        <input class="pop-up-input"  type="text" placeholder="имя" name="username" value={{ request.user.first_name }}>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Изменить фамилию </span>
+                        <input class="pop-up-input" type="text" placeholder="фамилия" name="username" value={{ request.user.last_name }}>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Изменить логин</span>
+                        <input class="pop-up-input" type="text" placeholder="логин" name="username" value={{ request.user.username }}>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Изменить пароль</span>
+                        <input class="pop-up-input" type="password" placeholder="пароль" name="password" value={{ password }}>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Введите пароль ещё раз</span>
+                        <input class="pop-up-input" type="password" placeholder="повторить пароль" name="confirm_password" value={{ comfirm_password }}>
+                    </label>
+                </div>
+                <button type="submit" class="enter-btn center" onclick="window.location.href={% url 'profile' %}">Изменить</button>
             </div>
-            <div>
-                <label>
-                    <span>Изменить фамилию </span>
-                    <input type="text" placeholder="фмилия" name="username" value={{ ser_name }}>
-                </label>
-            </div>
-            <div>
-                <label>
-                    <span>Изменить логин</span>
-                    <input type="text" placeholder="логин" name="username" value={{ username }}>
-                </label>
-            </div>
-            <div>
-                <label>
-                    <span>Изменить пароль</span>
-                    <input type="password" placeholder="пароль" name="password" value={{ password }}>
-                </label>
-            </div>
-            <div>
-                <label>
-                    <span>Введите пароль ещё раз</span>
-                    <input type="password" placeholder="повторить пароль" name="confirm_password" value={{ comfirm_password }}>
-                </label>
-            </div>
-            <button type="submit" class="enter-btn">Изменить</button>
         </div>
-
     </div>
 
 {% endblock %}
