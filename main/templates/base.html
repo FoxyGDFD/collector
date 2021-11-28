@@ -2,15 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
     <meta charset="UTF-8">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
-    <link rel="stylesheet" href="{% static '/css/main.css' %}" id="device">
+     <link rel="stylesheet" href="{% static '/css/main.css' %}" id="device">
+{% block headappend %}
+{% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <div class="content">
         {% block content %}
-
         {% endblock %}
     </div>
 </body>

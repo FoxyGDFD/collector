@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Отчет
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>Почему взыскание завершено неуспешно?</h1>
+    <h2 class="leave-comment">Напишите комментарий о клиенте</h2>
+    <label>
+        <textarea class="textarea" name="reason" placeholder="Опишите причину неуспешного взыскания" value= {{ comment }}></textarea>
+    </label>
+    <div class="btns-div">
+        <button type="submit" class="enter-btn" onclick="window.location.href={% url 'map' %}">Отправить</button>
+        <a class="skip-btn" href={% url 'map' %}>Пропустить</a>
+    </div>
+
+</div>
+
+{% endblock %}

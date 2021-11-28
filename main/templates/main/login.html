@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block content %}
+
+    <h1>Авторизация</h1>
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="input-container">
+            <label>
+                <input class="input" type="text" placeholder="логин" name="username" value={{ username }}>
+            </label>
+            <label>
+                <input class="input" type="password" placeholder="пароль" name="password" value={{ password }}>
+            </label>
+        </div>
+        <div class="btns-div">
+            <button type="submit" class="enter-btn">Войти</button>
+        </div>
+
+    </form>
+
+{% endblock %}
+

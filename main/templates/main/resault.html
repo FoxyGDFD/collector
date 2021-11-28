@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Результат взыскания
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>Как прошло взыскание?</h1>
+    <div class="btns-div">
+        <a class="enter-btn" href={% url 'map' %}>Успешно</a>
+        <a class="leave-btn" href={% url 'reason' %}>Не успешно</a>
+    </div>
+
+</div>
+
+{% endblock %}

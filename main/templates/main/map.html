@@ -1,11 +1,59 @@
+{% extends 'base.html' %}
+{% block headappend %}
+    {% load static %}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=0b762305-3c39-485f-bcd0-6f56d42398c5&lang=ru_RU"
+            type="text/javascript"></script>
+    <script src={% static '/js/map.js' %}></script>
+
+{% endblock %}
+{% block title %}MAP{% endblock %}
 {% block content %}
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
-    </script>
-    <script src="{% static '/js/map.js' %}"></script>
-  </head>
-<body>
-  <div id="map" style="width:400px; height: 400px"></div>
-</body>
+    <div id="map"></div>
+    <script src="{% static '/js/ajax.js' %}"></script>
+
+    <div class="rising-menu-container">
+        <div class="client-info-container">
+            <div class="client-rating-and-name">
+                <div class="rating-container"></div>
+                <div class="client-name-container">
+                    <h1 class="client-name-container-name">Имя</h1>
+                    <h1 class="client-name-container-lastname">Фамилия</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-about-user-in-rising-menu">
+            <div class="user-data-container-in-rising-menu">
+                <h1 class="user-data-container-in-rising-menu-h1">Долг</h1>
+                <div class="quantity-of-something">
+                    <div class="quantity-of-something-number">2</div>
+                    <div class="quantity-of-something-text">тыс</div>
+                </div>
+            </div>
+            <div class="user-data-container-in-rising-menu">
+                <h1 class="user-data-container-in-rising-menu-h1">Расстояние</h1>
+                <div class="quantity-of-something">
+                    <div class="quantity-of-something-number">2</div>
+                    <div class="quantity-of-something-text">км</div>
+                </div>
+            </div>
+            <div class="user-data-container-in-rising-menu">
+                <h1 class="user-data-container-in-rising-menu-h1">Сотрудничество</h1>
+                <div class="quantity-of-something">
+                    <div class="quantity-of-something-number">2</div>
+                    <div class="quantity-of-something-text">года</div>
+                </div>
+            </div>
+        </div>
+        <a class="comments-about-client" href="">Комментарии</a>
+    </div>
+
+    <div id="pop-up-begin-disabled">
+        <div>
+            <h1>Вы прибыли</h1>
+            <h3>Для начала взыскания, нажмите кнопку</h3>
+            <button type="button" class="enter-btn" id="begin-btn">Начать</button>
+        </div>
+    </div>
+
 {% endblock %}

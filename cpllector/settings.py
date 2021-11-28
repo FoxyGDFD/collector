@@ -28,7 +28,7 @@ LOGOUT_REDIRECT_URL = 'main'
 LOGIN_REDIRECT_URL = 'profile'
 
 
-ALLOWED_HOSTS = ['10.70.4.194', "*"]
+ALLOWED_HOSTS = ['10.70.4.246', "*"]
 
 # Application definition
 
@@ -119,9 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '../main/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
-    'cpllector/../main/static',
+    'main/static',
 )
 
 # Default primary key field type

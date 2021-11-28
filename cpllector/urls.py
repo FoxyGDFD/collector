@@ -16,12 +16,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.contrib.auth import views as VIEW
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('login/', VIEW.LoginView.as_view(), name='login'),
     path('logout/', VIEW.LogoutView.as_view(), name='logout'),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico'))),
 ]
